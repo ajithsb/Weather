@@ -8,19 +8,26 @@
 import SwiftUI
 
 struct HomeView: View {
+    @State private var isDark = false
     var dataModel: DataModel
     var body: some View {
         ZStack {
-            GradientBgView(colors: [.blue , Color(#colorLiteral(red: 0.5642963648, green: 0.8185990453, blue: 0.8406264186, alpha: 1))])
+            GradientBgView(isDark: $isDark)
             
             VStack(spacing:10) {
                 CustomTextView(title: dataModel.city).padding()
                 Image(systemName: dataModel.weatherImge)
-                    .renderingMode(.original)
                     .resizable()
                     .aspectRatio(contentMode: .fit)
                     .frame(width: 170)
                     .padding(.top)
+                    .symbolRenderingMode(.multicolor)
+                    .symbolEffect(
+                            .variableColor
+                            .iterative
+                            .reversing
+                    )
+
                 
                 CustomTextView(title: dataModel.temp,fonSize: 72)
                     .padding(.vertical, 30)
@@ -34,7 +41,7 @@ struct HomeView: View {
                 }
                 
                 CustomButton(title: dataModel.buttonTitle) {
-                    // Handle button tap action
+                    isDark.toggle()
                 }.padding(.top, 50)
                 
                 Spacer()
