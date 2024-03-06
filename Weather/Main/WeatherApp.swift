@@ -11,7 +11,8 @@ import SwiftUI
 struct WeatherApp: App {
     var body: some Scene {
         WindowGroup {
-            HomeView(dataModel: configureData())
+//            HomeView(dataModel: configureData())
+            FrameworkView()
         }
     }
 }

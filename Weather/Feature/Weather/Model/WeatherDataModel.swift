@@ -8,7 +8,7 @@
 import Foundation
 import SwiftUI
 
-struct DataModel {
+struct WeatherDataModel {
     let city: String
     let temp: String
     let weatherImge: String
@@ -22,7 +22,7 @@ struct WeekDayWeather {
     let weatherImge: String
 }
 
-func configureData() -> DataModel {
+func configureData() -> WeatherDataModel {
     var weekdaysData = [WeekDayWeather]()
     
     for day in ["Mon", "Tue", "Wed", "Thu", "Fri"] {
@@ -32,7 +32,7 @@ func configureData() -> DataModel {
     }
     let randomData = generateRandomTemperatureAndImage()
 
-    return DataModel(city: "Barcelona, CA", temp: "\(randomData.temperature)°C", weatherImge: randomData.imageName, buttonTitle: "Change Day Time", weekdays: weekdaysData)
+    return WeatherDataModel(city: "Barcelona, CA", temp: "\(randomData.temperature)°C", weatherImge: randomData.imageName, buttonTitle: "Change Day Time", weekdays: weekdaysData)
 }
 
 func generateRandomTemperatureAndImage() -> (temperature: Int, imageName: String) {
@@ -55,3 +55,4 @@ func generateRandomTemperatureAndImage() -> (temperature: Int, imageName: String
     
     return (randomTemperature, imageName)
 }
+

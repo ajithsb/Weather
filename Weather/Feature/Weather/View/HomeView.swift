@@ -9,7 +9,7 @@ import SwiftUI
 
 struct HomeView: View {
     @State private var isDark = false
-    var dataModel: DataModel
+    var dataModel: WeatherDataModel
     var body: some View {
         ZStack {
             GradientBgView(isDark: $isDark)
